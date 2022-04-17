@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(transform.up * 1000);
+            rb.AddForce(transform.up * 15, ForceMode.Impulse);
         }
     }
 
@@ -47,12 +47,14 @@ public class PlayerMovement : MonoBehaviour
     {
         currentInput = Input.GetAxis("Horizontal");
         horizontalSpeed = Mathf.LerpUnclamped(0, 10, currentInput);
-        rb.velocity = horizontalSpeed * Vector3.right;
+        Vector3 temp = rb.velocity;
+        temp.x = horizontalSpeed;
+        rb.velocity = temp;
     }
 
     void AddGravitionalForce()
     {
-        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 4, 0, 300);
+        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 5, 0, 30);
         rb.AddForce(-transform.up * gravitionalForce);
     }
 
