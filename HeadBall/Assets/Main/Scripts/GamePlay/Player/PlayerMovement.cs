@@ -8,9 +8,8 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private PhotonView photonView;
-    [SerializeField] private Rigidbody rb;
-    
+    public Player player;
+    public bool IsGrounded { get; set; }
     private float moveSpeed = 100;
     private float jumpPower = 10;
     private float horizontalSpeed;
@@ -18,11 +17,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        if (!photonView.IsMine) Destroy(this);
+        if (!player.photonView.IsMine) Destroy(this);
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
+    
+    void Update()
     {
         MovePlayer();
         AddGravitionalForce();
@@ -36,25 +34,25 @@ public class PlayerMovement : MonoBehaviour
 
     void VerticalMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
-            rb.AddForce(transform.up * 15, ForceMode.Impulse);
+            player.rb.AddForce(transform.up * 20, ForceMode.Impulse);
         }
     }
 
-    
+
     void HorizontalMovement()
     {
         currentInput = Input.GetAxis("Horizontal");
         horizontalSpeed = Mathf.LerpUnclamped(0, 10, currentInput);
-        Vector3 temp = rb.velocity;
+        Vector3 temp = player.rb.velocity;
         temp.x = horizontalSpeed;
-        rb.velocity = temp;    }
+        player.rb.velocity = temp;
+    }
 
     void AddGravitionalForce()
     {
         float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 5, 0, 30);
-        rb.AddForce(-transform.up * gravitionalForce);
+        player.rb.AddForce(-transform.up * gravitionalForce);
     }
-
 }
