@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     
     private float moveSpeed = 100;
     private float jumpPower = 10;
+    private float horizontalSpeed;
     private float currentInput;
 
     private void Start()
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         MovePlayer();
         ClampSpeed();
@@ -35,15 +36,19 @@ public class PlayerMovement : MonoBehaviour
 
     void VerticalMovement()
     {
-        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("added force");
+            rb.AddForce(transform.up * 100,ForceMode.Impulse);
+        }
     }
 
     
     void HorizontalMovement()
     {
         currentInput = Input.GetAxis("Horizontal");
-        float speed = Mathf.LerpUnclamped(0, 10, currentInput);
-        rb.velocity = speed * Vector3.right;
+        horizontalSpeed = Mathf.LerpUnclamped(0, 10, currentInput);
+        rb.velocity = horizontalSpeed * Vector3.right;
     }
 
     void ClampSpeed()
