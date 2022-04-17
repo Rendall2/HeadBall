@@ -11,7 +11,7 @@ public class GoalChecker : MonoBehaviour
         if(!other.attachedRigidbody) return;
         if (other.attachedRigidbody.TryGetComponent(out Ball ball))
         {
-            ball.ResetPosition();
+            if (PhotonNetwork.IsMasterClient) ball.ResetPosition();
         }
     }
 }
