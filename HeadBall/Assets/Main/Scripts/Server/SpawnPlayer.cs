@@ -1,18 +1,41 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class SpawnPlayer : MonoBehaviour
+public class SpawnPlayer : SingletonPun<SpawnPlayer>
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject player;
+    private void Awake()
     {
-        
+        PhotonNetwork.ConnectUsingSettings();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnConnectedToMaster()
     {
-        
+        base.OnConnectedToMaster();
+        PhotonNetwork.JoinLobby();
     }
+    
+    
+    public override void OnJoinedLobby()
+    {
+        PhotonNetwork.JoinOrCreateRoom("asdf", new RoomOptions(), TypedLobby.Default);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        SpawnAPlayer();
+    }
+
+
+    private void SpawnAPlayer()
+    {
+        PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+    }
+    
+    
 }
