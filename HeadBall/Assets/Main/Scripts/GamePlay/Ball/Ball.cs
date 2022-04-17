@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public Rigidbody rb;
     private Vector3 startPos = new Vector3(0, 15, 0);
-    public void ResetPosition()
+    public IEnumerator ResetPosition()
     {
+        yield return new WaitUntil(() => rb.velocity.sqrMagnitude < 2f);
         transform.position = startPos;
-        Debug.Log("entered");
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
     }
 }
