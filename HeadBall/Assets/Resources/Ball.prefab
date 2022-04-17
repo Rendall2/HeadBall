@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2339267937219518839}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2339267938838274382}
   - component: {fileID: 2339267938838274381}
   - component: {fileID: 2339267938838274380}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2339267938975222849}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ModelHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2339267939301958954}
   - component: {fileID: 4084429336779620695}
-  m_Layer: 0
+  - component: {fileID: 223340883250259182}
+  - component: {fileID: 3639589852611290584}
+  - component: {fileID: 5613800288248117145}
+  m_Layer: 12
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,6 +209,62 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 2
   m_CollisionDetection: 0
+--- !u!114 &223340883250259182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339267939301958953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 3639589852611290584}
+  - {fileID: 5613800288248117145}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &3639589852611290584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339267939301958953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &5613800288248117145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339267939301958953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1001 &170642815178158604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 2461359546728688157, guid: e5b3a2f88c133404482360ddc5cf22c5, type: 3}
       propertyPath: m_Name
       value: SoccerBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461359546728688157, guid: e5b3a2f88c133404482360ddc5cf22c5, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2461359546728688158, guid: e5b3a2f88c133404482360ddc5cf22c5, type: 3}
       propertyPath: m_RootOrder
@@ -260,6 +323,10 @@ PrefabInstance:
     - target: {fileID: 2461359546728688158, guid: e5b3a2f88c133404482360ddc5cf22c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3380488796213966288, guid: e5b3a2f88c133404482360ddc5cf22c5, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5b3a2f88c133404482360ddc5cf22c5, type: 3}
