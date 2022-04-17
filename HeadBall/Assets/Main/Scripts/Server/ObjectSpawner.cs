@@ -11,7 +11,7 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
     private void Awake()
     {
         SpawnPlayer(PhotonNetwork.IsMasterClient);
-        if (!Equals(PhotonNetwork.PlayerList[0], PhotonNetwork.LocalPlayer)) return;
+        if (Equals(PhotonNetwork.PlayerList[0], PhotonNetwork.LocalPlayer)) return;
         SpawnBall();
     }
 
@@ -31,7 +31,7 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
 
     private void SpawnBall()
     {
-        PhotonNetwork.Instantiate("Ball", new Vector3(7.5f,15f,0f), Quaternion.identity);
+        PhotonNetwork.Instantiate("Ball", new Vector3(0f,15f,0f), Quaternion.identity);
     }
 
 }
