@@ -11,8 +11,10 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
     private void Awake()
     {
         SpawnPlayer(PhotonNetwork.IsMasterClient);
-        if (Equals(PhotonNetwork.PlayerList[0], PhotonNetwork.LocalPlayer)) return;
-        SpawnBall();
+        if (Equals(PhotonNetwork.PlayerList[0], PhotonNetwork.LocalPlayer))
+        {
+            StartCoroutine(SpawnBall());
+        }
     }
 
     private void SpawnPlayer(bool isMasterClient)
@@ -29,8 +31,9 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
 
     }
 
-    private void SpawnBall()
+    private IEnumerator SpawnBall()
     {
+        yield return new WaitUntil(() => PhotonNetwork.PlayerList.Length == 2);
         PhotonNetwork.Instantiate("Ball", new Vector3(0f,15f,0f), Quaternion.identity);
     }
 
