@@ -1,13 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-public class SpawnPlayer : SingletonPun<SpawnPlayer>
+public class ServerManager : SingletonPun<ServerManager>
 {
-    [SerializeField] private GameObject player;
     private void Awake()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -17,25 +15,21 @@ public class SpawnPlayer : SingletonPun<SpawnPlayer>
     {
         base.OnConnectedToMaster();
         PhotonNetwork.JoinLobby();
+        Debug.Log("Master Connected");
     }
     
     
     public override void OnJoinedLobby()
     {
-        PhotonNetwork.JoinOrCreateRoom("asdf", new RoomOptions(), TypedLobby.Default);
+        base.OnJoinedLobby();
+        Debug.Log("Someone Joined Lobby");
+
     }
 
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        SpawnAPlayer();
-    }
+        Debug.Log("Someone Joined Room");
 
-
-    private void SpawnAPlayer()
-    {
-        PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
     }
-    
-    
 }
