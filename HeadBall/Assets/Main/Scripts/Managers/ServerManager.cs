@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class ServerManager : SingletonPun<ServerManager>
 {
-    private const float SceneChangeDelay = .5f;
     private void Awake()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -19,8 +18,8 @@ public class ServerManager : SingletonPun<ServerManager>
         PhotonNetwork.JoinLobby();
         Debug.Log("Master Connected");
     }
-    
-    
+
+
     public override void OnJoinedLobby()
     {
         base.OnJoinedLobby();
@@ -41,21 +40,19 @@ public class ServerManager : SingletonPun<ServerManager>
         {
             MaxPlayers = 2
         };
-        return  PhotonNetwork.CreateRoom(roomName, roomOptions);
+        return PhotonNetwork.CreateRoom(roomName, roomOptions);
     }
 
     public bool JoinRoom(string roomName)
     {
         if (roomName == "") return false;
-        var isOperationCompleted = PhotonNetwork.JoinRoom(roomName);
-        if (isOperationCompleted) SceneManager.LoadScene(1);
+        PhotonNetwork.JoinRoom(roomName);
         return PhotonNetwork.JoinRoom(roomName);
     }
 
     public bool JoinRandomRoom()
     {
-        var isOperationCompleted = PhotonNetwork.JoinRandomRoom();
-        if (isOperationCompleted) SceneManager.LoadScene(1);
+        PhotonNetwork.JoinRandomRoom();
         return PhotonNetwork.JoinRandomRoom();
     }
 }
