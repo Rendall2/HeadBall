@@ -52,8 +52,8 @@ public class PlayerMovement : MonoBehaviour
 
     void AddGravitionalForce()
     {
-        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 0, 3, 1, 200);
-        rb.AddForce(-transform.up * gravitionalForce * Time.deltaTime);
+        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 4, 0, 300);
+        rb.AddForce(-transform.up * gravitionalForce);
     }
 
 }
