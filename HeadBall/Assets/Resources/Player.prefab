@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 5131090936118623777}
   - component: {fileID: 7475828380495675302}
   - component: {fileID: 4612349436535805943}
+  - component: {fileID: 5721098081778290055}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -216,7 +217,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!114 &4612349436535805943
 MonoBehaviour:
@@ -234,6 +235,20 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &5721098081778290055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121870462251792715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9517e896e548e4b9da0737c65fd05a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  photonView: {fileID: 4899796084346958720}
+  rb: {fileID: 7475828380495675302}
 --- !u!1 &2181257174159625061
 GameObject:
   m_ObjectHideFlags: 0

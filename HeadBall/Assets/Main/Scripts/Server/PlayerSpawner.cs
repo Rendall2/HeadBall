@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PlayerSpawner : SingletonPun<PlayerSpawner>
 {
-    private void Start()
+    private void Awake()
     {
         SpawnPlayer();
     }
