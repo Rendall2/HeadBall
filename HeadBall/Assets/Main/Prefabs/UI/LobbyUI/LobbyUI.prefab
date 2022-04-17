@@ -126,8 +126,8 @@ MonoBehaviour:
   createButton: {fileID: 4461456138789398533}
   joinButton: {fileID: 2399722579381408840}
   findRandomMatchButton: {fileID: 943263444744074957}
-  roomNameForCreating: {fileID: 5699142910692859019}
-  roomNameForJoining: {fileID: 5699142911412571305}
+  roomNameForCreating: {fileID: 5699142910560639254}
+  roomNameForJoining: {fileID: 5699142911543806260}
 --- !u!1 &6305376316155374607
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,15 +608,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1771706936106534197, guid: 06cee310ee88b4b4a988aff2214adab6, type: 3}
   m_PrefabInstance: {fileID: 6305376315733756930}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5699142911412571305 stripped
+--- !u!114 &5699142911543806260 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1771706935969988779, guid: 06cee310ee88b4b4a988aff2214adab6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1771706936106534198, guid: 06cee310ee88b4b4a988aff2214adab6, type: 3}
   m_PrefabInstance: {fileID: 6305376315733756930}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6305376316320093450
@@ -840,15 +840,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1771706936106534197, guid: 06cee310ee88b4b4a988aff2214adab6, type: 3}
   m_PrefabInstance: {fileID: 6305376317179092000}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5699142910692859019 stripped
+--- !u!114 &5699142910560639254 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1771706935969988779, guid: 06cee310ee88b4b4a988aff2214adab6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1771706936106534198, guid: 06cee310ee88b4b4a988aff2214adab6, type: 3}
   m_PrefabInstance: {fileID: 6305376317179092000}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8924887307962300303

@@ -10,8 +10,8 @@ public class LobbyUIController : SingletonPun<LobbyUIController>
     [SerializeField] private Button createButton;
     [SerializeField] private Button joinButton;
     [SerializeField] private Button findRandomMatchButton;
-    [SerializeField] private TextMeshProUGUI roomNameForCreating;
-    [SerializeField] private TextMeshProUGUI roomNameForJoining;
+    [SerializeField] private TMP_InputField roomNameForCreating;
+    [SerializeField] private TMP_InputField roomNameForJoining;
 
     private void Awake()
     {

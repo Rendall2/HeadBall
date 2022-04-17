@@ -35,7 +35,7 @@ public class ServerManager : SingletonPun<ServerManager>
 
     public bool CreateRoom(string roomName)
     {
-        if (roomName.Length <=1) return false;
+        if (roomName == "") return false;
         RoomOptions roomOptions = new RoomOptions
         {
             MaxPlayers = 2
@@ -45,7 +45,7 @@ public class ServerManager : SingletonPun<ServerManager>
 
     public bool JoinRoom(string roomName)
     {
-        if (roomName.Length <=1) return false;
+        if (roomName == "") return false;
         return PhotonNetwork.JoinRoom(roomName);
     }
 
