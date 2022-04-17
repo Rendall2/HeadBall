@@ -7,19 +7,27 @@ using UnityEngine;
 
 public class ObjectSpawner : SingletonPun<ObjectSpawner>
 {
+    [SerializeField] private List<Vector3> spawnPositions;
     private void Awake()
     {
-        SpawnPlayer();
-        if (Equals(PhotonNetwork.PlayerList[1], PhotonNetwork.LocalPlayer))
-        {
-            Debug.Log("entered");
-            SpawnBall();
-        }
+        SpawnPlayer(PhotonNetwork.IsMasterClient);
+        if (!Equals(PhotonNetwork.PlayerList[1], PhotonNetwork.LocalPlayer)) return;
+        Debug.Log("entered");
+        SpawnBall();
     }
 
-    private void SpawnPlayer()
+    private void SpawnPlayer(bool isMasterClient)
     {
-        PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+        if (isMasterClient)
+        {
+            PhotonNetwork.Instantiate("Player", spawnPositions[0], Quaternion.identity);
+            return;
+        }
+        var go = PhotonNetwork.Instantiate("Player", spawnPositions[1], Quaternion.identity);
+        var temp = go.transform.localScale;
+        temp.x = -temp.x;
+        go.transform.localScale = temp;
+
     }
 
     private void SpawnBall()

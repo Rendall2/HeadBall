@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dc718ff948c4818a837ca449aa109f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPositions:
+  - {x: -12, y: 3.6, z: 0}
+  - {x: 12, y: 3.6, z: 0}
