@@ -11,8 +11,7 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
     private void Awake()
     {
         SpawnPlayer(PhotonNetwork.IsMasterClient);
-        if (!Equals(PhotonNetwork.PlayerList[1], PhotonNetwork.LocalPlayer)) return;
-        Debug.Log("entered");
+        if (!Equals(PhotonNetwork.PlayerList[0], PhotonNetwork.LocalPlayer)) return;
         SpawnBall();
     }
 
