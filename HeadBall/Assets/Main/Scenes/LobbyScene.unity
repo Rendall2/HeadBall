@@ -477,6 +477,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 37219016}
     m_Modifications:
+    - target: {fileID: 6305376315521152339, guid: 34044ab8deafe4acfa02b110f0d2f878, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305376315757927192, guid: 34044ab8deafe4acfa02b110f0d2f878, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6305376315891949658, guid: 34044ab8deafe4acfa02b110f0d2f878, type: 3}
       propertyPath: m_Name
       value: LobbyUI
