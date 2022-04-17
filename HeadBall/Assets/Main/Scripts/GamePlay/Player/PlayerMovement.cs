@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-        ClampSpeed();
+        AddGravitionalForce();
     }
 
     void MovePlayer()
@@ -36,10 +36,9 @@ public class PlayerMovement : MonoBehaviour
 
     void VerticalMovement()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("added force");
-            rb.AddForce(transform.up * 100,ForceMode.Impulse);
+            rb.AddForce(transform.up * 1000);
         }
     }
 
@@ -51,9 +50,10 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = horizontalSpeed * Vector3.right;
     }
 
-    void ClampSpeed()
+    void AddGravitionalForce()
     {
-       // Input.GetAxis("Horizontal")
+        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 0, 3, 1, 200);
+        rb.AddForce(-transform.up * gravitionalForce * Time.deltaTime);
     }
 
 }
