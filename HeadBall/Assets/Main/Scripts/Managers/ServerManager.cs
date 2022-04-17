@@ -32,4 +32,25 @@ public class ServerManager : SingletonPun<ServerManager>
         Debug.Log("Someone Joined Room");
 
     }
+
+    public bool CreateRoom(string roomName)
+    {
+        if (roomName.Length == 0) return false;
+        RoomOptions roomOptions = new RoomOptions
+        {
+            MaxPlayers = 2
+        };
+        return PhotonNetwork.CreateRoom(roomName, roomOptions);
+    }
+
+    public bool JoinRoom(string roomName)
+    {
+        if (roomName.Length == 0) return false;
+        return PhotonNetwork.JoinRoom(roomName);
+    }
+
+    public bool JoinRandomRoom()
+    {
+        return PhotonNetwork.JoinRandomRoom();
+    }
 }
