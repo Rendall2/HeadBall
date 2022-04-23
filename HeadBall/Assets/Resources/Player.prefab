@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8806728896734863470}
+  kickControl: {fileID: 4614964586603179660}
 --- !u!114 &8806728896734863470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +385,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
   m_PrefabInstance: {fileID: 1449984202588064202}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4614964586603179660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6058684157369640774, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+  m_PrefabInstance: {fileID: 1449984202588064202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bf2a1fe8c8e406aa60c4f93931b28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5725468790216863997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6587521008671308087, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}

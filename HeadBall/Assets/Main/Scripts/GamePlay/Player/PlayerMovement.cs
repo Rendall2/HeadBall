@@ -38,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
         {
             willMoveTowardsRight = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            kickControl.KickSimulate();
+        }
     }
 
     private void FixedUpdate()
@@ -78,10 +83,5 @@ public class PlayerMovement : MonoBehaviour
         if(IsGrounded) return;
         float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 3, 0, 5);
         player.rb.AddForce(-transform.up * gravitionalForce);
-    }
-
-    private void KickSimulate()
-    {
-        
     }
 }

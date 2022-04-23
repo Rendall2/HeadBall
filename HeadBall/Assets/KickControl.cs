@@ -6,17 +6,26 @@ using UnityEngine;
 
 public class KickControl : MonoBehaviour
 {
-    private bool canTryKick;
+    private Ball ball;
+    private Coroutine shootCoroutine;
     private bool isContactedWithBall = false;
+    private bool canTryKick;
+    private void Start()
+    {
+        ball = FindObjectOfType<Ball>();
+    }
 
-    private void KickSimulate()
+    public void KickSimulate()
     {
         canTryKick = true;
         DOTween.Complete("kickTween");
-        transform.DORotate(Vector3.forward * 15f, .25f).SetEase(Ease.InSine).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
+        transform.DORotate(Vector3.forward * 15f, .25f).SetEase(Ease.InSine).SetLoops(2, LoopType.Yoyo).OnKill(() =>
         {
+            transform.eulerAngles = Vector3.zero;
             canTryKick = false;
         }).SetId("kickTween");
+        if(shootCoroutine != null) StopCoroutine(shootCoroutine);
+        shootCoroutine = StartCoroutine(TryShoot());
     }
 
     private void OnCollisionEnter(Collision other)
@@ -34,6 +43,20 @@ public class KickControl : MonoBehaviour
         if (other.rigidbody.TryGetComponent(out Ball ball))
         {
             isContactedWithBall = false;
+        }
+    }
+
+    private IEnumerator TryShoot()
+    {
+        while (canTryKick)
+        {
+            if (isContactedWithBall)
+            {
+                var dir = transform.right;
+                ball.Shoot(dir);
+                break;
+            }
+            yield return null;
         }
     }
 }
