@@ -24,15 +24,16 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
         AddGravitionalForce();
+        if (Input.GetKeyDown(KeyCode.Space)) Kick();
     }
 
-    void MovePlayer()
+    private void MovePlayer()
     {
         HorizontalMovement();
         VerticalMovement();
     }
 
-    void VerticalMovement()
+    private void VerticalMovement()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
@@ -41,18 +42,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    void HorizontalMovement()
+    private void HorizontalMovement()
     {
         currentInput = Input.GetAxis("Horizontal");
-        horizontalSpeed = Mathf.LerpUnclamped(0, 10, currentInput);
+        if (currentInput > 0) horizontalSpeed = 10;
+        else horizontalSpeed = -10;
         Vector3 temp = player.rb.velocity;
         temp.x = horizontalSpeed;
         player.rb.velocity = temp;
     }
 
-    void AddGravitionalForce()
+    private void AddGravitionalForce()
     {
         float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 5, 0, 30);
         player.rb.AddForce(-transform.up * gravitionalForce);
+    }
+
+    private void Kick()
+    {
+        
     }
 }
