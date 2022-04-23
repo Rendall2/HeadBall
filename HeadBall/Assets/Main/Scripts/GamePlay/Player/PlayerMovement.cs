@@ -63,12 +63,12 @@ public class PlayerMovement : MonoBehaviour
             willMoveTowardsRight = false;
         }
 
-        else if (willMoveTowardsLeft)
+        if (willMoveTowardsLeft)
         {
             temp.x -= horizontalSpeed;
             willMoveTowardsLeft = false;
         }
-        else
+        if(!willMoveTowardsRight && !willMoveTowardsLeft)
         {
             temp.x = 0f;
         }
