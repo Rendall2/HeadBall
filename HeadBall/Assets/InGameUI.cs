@@ -6,19 +6,13 @@ using UnityEngine;
 public class InGameUI : Singleton<InGameUI>
 {
     public GameObject goalText;
+    public ScoreBoardController ScoreBoardController;
 
-    public void ChangeActiveGoalText(bool willEnable)
+    public IEnumerator ChangeActiveGoalText()
     {
-        DOTween.Complete("goalText");
-        if (willEnable)
-        {
-            goalText.gameObject.SetActive(true);
-            goalText.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBounce).From(Vector3.zero).SetId("goalText");
-            return;
-        }
-
-        goalText.transform.DOScale(Vector3.zero, .3f).SetEase(Ease.InBack).SetId("goalText").From(Vector3.one)
-            .OnComplete(
-                () => { goalText.gameObject.SetActive(false); });
+        goalText.gameObject.SetActive(true);
+        yield return goalText.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBounce).From(Vector3.zero).WaitForCompletion();
+        yield return goalText.transform.DOScale(Vector3.zero, .3f).SetEase(Ease.InBack).SetId("goalText").From(Vector3.one).WaitForCompletion();
+        goalText.gameObject.SetActive(false);
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GoalChecker : MonoBehaviour
 {
+    [SerializeField] private GoalPost goalPost;
     private bool canTrigger = true;
     private void OnTriggerEnter(Collider other)
     {
@@ -18,11 +19,10 @@ public class GoalChecker : MonoBehaviour
 
     private IEnumerator DoGoalActions()
     {
-        InGameUI.Instance.ChangeActiveGoalText(true);
-        yield return new WaitForSeconds(.6f);
-        InGameUI.Instance.ChangeActiveGoalText(false);
-        yield return new WaitForSeconds(.4f);
+        goalPost.UpdatePlayerScore();
+        yield return StartCoroutine(InGameUI.Instance.ChangeActiveGoalText());
         ObjectSpawner.Instance.ResetPositions();
         canTrigger = true;
     }
+    
 }
