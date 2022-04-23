@@ -57,8 +57,6 @@ public class PlayerMovement : MonoBehaviour
     private void HorizontalMovement()
     {
         var temp = player.rb.velocity;
-        Debug.Log("right: " + willMoveTowardsRight);
-        Debug.Log("left: " + willMoveTowardsLeft);
         if (willMoveTowardsRight)
         {
             temp.x += horizontalSpeed;
@@ -80,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
     private void AddGravitionalForce()
     {
         if(IsGrounded) return;
-        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 5, 0, 20);
+        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 5, 0, 10);
         player.rb.AddForce(-transform.up * gravitionalForce);
     }
 
