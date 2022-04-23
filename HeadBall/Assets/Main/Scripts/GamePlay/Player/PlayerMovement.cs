@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Player player;
+    public KickControl kickControl;
     public bool IsGrounded { get; set; }
     private float moveSpeed = 100;
     private float jumpPower = 100f;
@@ -79,7 +80,8 @@ public class PlayerMovement : MonoBehaviour
         player.rb.AddForce(-transform.up * gravitionalForce);
     }
 
-    private void Kick()
+    private void KickSimulate()
     {
+        
     }
 }
