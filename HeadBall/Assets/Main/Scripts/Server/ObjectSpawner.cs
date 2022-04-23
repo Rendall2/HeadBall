@@ -11,7 +11,7 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
 
     private void Awake()
     {
-        StartCoroutine(SpawnObjects());
+        SpawnObjects();
     }
 
     private void SpawnPlayer(bool isMasterClient)
@@ -28,9 +28,8 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
         go.transform.localScale = temp;
     }
 
-    private IEnumerator SpawnObjects()
+    private void SpawnObjects()
     {
-        yield return new WaitUntil(() => PhotonNetwork.PlayerList.Length == 2);
         if (PhotonNetwork.IsMasterClient)
         {
             SpawnBall();

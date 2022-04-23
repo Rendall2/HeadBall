@@ -30,6 +30,13 @@ public class ServerManager : SingletonPun<ServerManager>
     {
         base.OnJoinedRoom();
         Debug.Log("Someone Joined Room");
+
+        StartCoroutine(WaitForSecondPlayer());
+    }
+
+    private IEnumerator WaitForSecondPlayer()
+    {
+        yield return new WaitUntil(() => PhotonNetwork.PlayerList.Length == 2);
         SceneManager.LoadScene(1);
     }
 
@@ -46,6 +53,7 @@ public class ServerManager : SingletonPun<ServerManager>
     public bool JoinRoom(string roomName)
     {
         if (roomName == "") return false;
+        
         PhotonNetwork.JoinRoom(roomName);
         return PhotonNetwork.JoinRoom(roomName);
     }

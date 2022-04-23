@@ -12,7 +12,7 @@ public class LobbyUIController : SingletonPun<LobbyUIController>
     [SerializeField] private Button findRandomMatchButton;
     [SerializeField] private TMP_InputField roomNameForCreating;
     [SerializeField] private TMP_InputField roomNameForJoining;
-
+    
     private void Awake()
     {
         ListenButtons();
@@ -42,6 +42,7 @@ public class LobbyUIController : SingletonPun<LobbyUIController>
         switch (isOperationCompleted)
         {
             case true:
+                UIManager.Instance.OpenLoadingUI();
                 Debug.Log("Operation Completed");
                 break;
             case false:
@@ -49,4 +50,5 @@ public class LobbyUIController : SingletonPun<LobbyUIController>
                 break;
         }
     }
+    
 }
