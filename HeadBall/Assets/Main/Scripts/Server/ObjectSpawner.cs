@@ -8,7 +8,7 @@ using UnityEngine;
 public class ObjectSpawner : SingletonPun<ObjectSpawner>
 {
     [SerializeField] private List<Vector3> spawnPositions;
-    private Transform[] players = new Transform[2];
+    private Transform owner;
     private Ball ball;
     private Vector3 ballDefaultPos = new Vector3(0f, 15f, 0f);
 
@@ -22,12 +22,12 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
         if (isMasterClient)
         {
             var player1 = PhotonNetwork.Instantiate("Player", spawnPositions[0], Quaternion.identity);
-            players[0] = player1.transform;
+            owner = player1.transform;
             return;
         }
 
         var player2 = PhotonNetwork.Instantiate("Player", spawnPositions[1], Quaternion.identity);
-        players[1] = player2.transform;
+        owner = player2.transform;
         var temp = player2.transform.localScale;
         temp.x = -temp.x;
         player2.transform.localScale = temp;
@@ -53,8 +53,11 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
 
     public void ResetPositions()
     {
-        players[0].position = spawnPositions[0];
-        players[1].position = spawnPositions[1];
+        if (PhotonNetwork.IsMasterClient)
+        {
+            owner.position = spawnPositions[0];
+        }
+        owner.position = spawnPositions[1];
         ball.transform.position = ballDefaultPos;
         ball.rb.velocity = Vector3.zero;
         ball.rb.angularVelocity = Vector3.zero;
