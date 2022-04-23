@@ -19,7 +19,7 @@ public class KickControl : MonoBehaviour
     {
         canTryKick = true;
         DOTween.Complete("kickTween");
-        transform.DORotate(Vector3.forward * 15f, .25f).SetEase(Ease.InSine).SetLoops(2, LoopType.Yoyo).OnKill(() =>
+        transform.DORotate(Vector3.forward * 20f, .1f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).OnKill(() =>
         {
             transform.eulerAngles = Vector3.zero;
             canTryKick = false;
@@ -50,6 +50,7 @@ public class KickControl : MonoBehaviour
     {
         while (canTryKick)
         {
+            Debug.Log("try shoot");
             if (isContactedWithBall)
             {
                 var dir = transform.right;
