@@ -46,7 +46,9 @@ public class PlayerMovement : MonoBehaviour
     {
         currentInput = Input.GetAxis("Horizontal");
         if (currentInput > 0) horizontalSpeed = 10;
-        else horizontalSpeed = -10;
+        else if (currentInput < 0) horizontalSpeed = -10;
+        else horizontalSpeed = 0;
+        
         Vector3 temp = player.rb.velocity;
         temp.x = horizontalSpeed;
         player.rb.velocity = temp;
