@@ -6,8 +6,14 @@ using UnityEngine;
 
 public class GoalChecker : MonoBehaviour
 {
-    [SerializeField] private GoalPost goalPost;
+    private GoalPost goalPost;
     private bool canTrigger = true;
+
+    private void Awake()
+    {
+        goalPost = GetComponentInParent<GoalPost>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(!canTrigger) return;
