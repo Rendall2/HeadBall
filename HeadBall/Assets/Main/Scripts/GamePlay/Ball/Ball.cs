@@ -10,6 +10,6 @@ public class Ball : MonoBehaviour
     public void Shoot(Vector3 dir)
     {
         Debug.Log("shoot");
-        rb.AddForce(dir * shootPower,ForceMode.Impulse);
+        rb.AddForce((dir + Vector3.up * 2f) * shootPower,ForceMode.Impulse);
     }
 }
