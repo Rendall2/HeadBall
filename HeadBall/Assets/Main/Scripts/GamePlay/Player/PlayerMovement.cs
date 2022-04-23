@@ -4,77 +4,87 @@ using System.Collections.Generic;
 using System.Numerics;
 using Photon.Pun;
 using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Player player;
     public bool IsGrounded { get; set; }
     private float moveSpeed = 100;
-    private float jumpPower = 50;
-    private float horizontalSpeed;
-    private float currentInput;
+    private float jumpPower = 60f;
+    private float horizontalSpeed = 15f;
+    private bool willMoveTowardsRight = false;
+    private bool willMoveTowardsLeft = false;
+    private bool willJump = false;
 
     private void Start()
     {
         if (!player.photonView.IsMine) Destroy(this);
     }
-    
-    void Update()
+
+    private void Update()
     {
-        MovePlayer();
-        AddGravitionalForce();
-        if (Input.GetKeyDown(KeyCode.Space)) Kick();
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
+        {
+            willJump = true;
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            willMoveTowardsLeft = true;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            willMoveTowardsRight = true;
+        }
     }
 
-    private void MovePlayer()
+    private void FixedUpdate()
     {
         VerticalMovement();
-        
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            StopPlayer();
-            return;
-        }
-        
         HorizontalMovement();
+        AddGravitionalForce();
     }
 
     private void VerticalMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
-        {
-            player.rb.AddForce(transform.up * 20, ForceMode.Impulse);
-        }
+        if (!willJump) return;
+        player.rb.AddForce(transform.up * 20, ForceMode.Impulse);
+        willJump = false;
     }
 
 
     private void HorizontalMovement()
     {
-        currentInput = Input.GetAxis("Horizontal");
-        if (currentInput > 0) horizontalSpeed = 10;
-        else if (currentInput < 0) horizontalSpeed = -10;
-        
-        Vector3 temp = player.rb.velocity;
-        temp.x = horizontalSpeed;
-        player.rb.velocity = temp;
-    }
+        var temp = player.rb.velocity;
+        Debug.Log("right: " + willMoveTowardsRight);
+        Debug.Log("left: " + willMoveTowardsLeft);
+        if (willMoveTowardsRight)
+        {
+            temp.x += horizontalSpeed;
+            willMoveTowardsRight = false;
+        }
 
-    private void StopPlayer()
-    {
-        Vector3 temp = player.rb.velocity;
-        temp.x = 0;
+        else if (willMoveTowardsLeft)
+        {
+            temp.x -= horizontalSpeed;
+            willMoveTowardsLeft = false;
+        }
+        else
+        {
+            temp.x = 0f;
+        }
         player.rb.velocity = temp;
     }
 
     private void AddGravitionalForce()
     {
-        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 5, 0, 30);
+        if(IsGrounded) return;
+        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 5, 0, 20);
         player.rb.AddForce(-transform.up * gravitionalForce);
     }
 
     private void Kick()
     {
-        
     }
 }

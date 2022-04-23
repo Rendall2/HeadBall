@@ -21,7 +21,7 @@ public class GoalChecker : MonoBehaviour
         InGameUI.Instance.ChangeActiveGoalText(true);
         yield return new WaitForSeconds(.6f);
         InGameUI.Instance.ChangeActiveGoalText(false);
-        yield return .4f;
+        yield return new WaitForSeconds(.4f);
         ObjectSpawner.Instance.ResetPositions();
         canTrigger = true;
     }
