@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Player player;
     public bool IsGrounded { get; set; }
     private float moveSpeed = 100;
-    private float jumpPower = 60f;
+    private float jumpPower = 70f;
     private float horizontalSpeed = 15f;
     private bool willMoveTowardsRight = false;
     private bool willMoveTowardsLeft = false;
@@ -57,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
     private void HorizontalMovement()
     {
         var temp = player.rb.velocity;
+        if(!willMoveTowardsRight && !willMoveTowardsLeft)
+        {
+            temp.x = 0f;
+        }
         if (willMoveTowardsRight)
         {
             temp.x += horizontalSpeed;
@@ -68,17 +72,13 @@ public class PlayerMovement : MonoBehaviour
             temp.x -= horizontalSpeed;
             willMoveTowardsLeft = false;
         }
-        if(!willMoveTowardsRight && !willMoveTowardsLeft)
-        {
-            temp.x = 0f;
-        }
         player.rb.velocity = temp;
     }
 
     private void AddGravitionalForce()
     {
         if(IsGrounded) return;
-        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 5, 0, 10);
+        float gravitionalForce = UsefulFunctions.Map(transform.position.y, 1, 3, 0, 5);
         player.rb.AddForce(-transform.up * gravitionalForce);
     }
 
