@@ -27,6 +27,7 @@ public class KickControl : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
+        Debug.Log(other.rigidbody.name);
         if(!other.rigidbody) return;
         if (!other.rigidbody.TryGetComponent(out Ball ball)) return;
         Debug.Log("entered");
