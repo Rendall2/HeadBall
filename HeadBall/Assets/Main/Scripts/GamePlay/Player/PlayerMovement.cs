@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Player player;
     public bool IsGrounded { get; set; }
     private float moveSpeed = 100;
-    private float jumpPower = 10;
+    private float jumpPower = 50;
     private float horizontalSpeed;
     private float currentInput;
 
@@ -29,8 +29,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        HorizontalMovement();
         VerticalMovement();
+        
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            StopPlayer();
+            return;
+        }
+        
+        HorizontalMovement();
     }
 
     private void VerticalMovement()
@@ -47,10 +54,16 @@ public class PlayerMovement : MonoBehaviour
         currentInput = Input.GetAxis("Horizontal");
         if (currentInput > 0) horizontalSpeed = 10;
         else if (currentInput < 0) horizontalSpeed = -10;
-        else horizontalSpeed = 0;
         
         Vector3 temp = player.rb.velocity;
         temp.x = horizontalSpeed;
+        player.rb.velocity = temp;
+    }
+
+    private void StopPlayer()
+    {
+        Vector3 temp = player.rb.velocity;
+        temp.x = 0;
         player.rb.velocity = temp;
     }
 

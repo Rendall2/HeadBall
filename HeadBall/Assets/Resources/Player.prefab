@@ -322,48 +322,60 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.17000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.256
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9870616
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.16034132
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -18.453
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1284028890473159646, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 0.152
       objectReference: {fileID: 0}
     - target: {fileID: 4620521817942309098, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
       propertyPath: m_Name
       value: PlayerShoe
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.54167515
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.54167515
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.45451954
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.45451954
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828875124777998159, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 280
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1f22950b0f147f6aab22bc74641bdb, type: 3}
@@ -391,6 +403,38 @@ PrefabInstance:
     - target: {fileID: 1748942330841632566, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265886882200159138, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.176
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265886882200159138, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.4924038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265886882200159138, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08682422
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265886882200159138, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.85286856
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265886882200159138, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.150384
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265886882200159138, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265886882200159138, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265886882200159138, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4232919031340336270, guid: f21808d80753e444bb7b2701b15ffc3e, type: 3}
       propertyPath: m_LocalPosition.x
