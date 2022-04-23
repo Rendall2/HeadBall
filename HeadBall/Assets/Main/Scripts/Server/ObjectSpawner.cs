@@ -56,8 +56,14 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
         if (PhotonNetwork.IsMasterClient)
         {
             owner.position = spawnPositions[0];
+            ResetBall();
+            return;
         }
         owner.position = spawnPositions[1];
+    }
+
+    private void ResetBall()
+    {
         ball.transform.position = ballDefaultPos;
         ball.rb.velocity = Vector3.zero;
         ball.rb.angularVelocity = Vector3.zero;
