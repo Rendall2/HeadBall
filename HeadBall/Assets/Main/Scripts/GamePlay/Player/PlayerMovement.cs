@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Player player;
     public bool IsGrounded { get; set; }
     private float moveSpeed = 100;
-    private float jumpPower = 70f;
+    private float jumpPower = 100f;
     private float horizontalSpeed = 15f;
     private bool willMoveTowardsRight = false;
     private bool willMoveTowardsLeft = false;
@@ -57,10 +57,7 @@ public class PlayerMovement : MonoBehaviour
     private void HorizontalMovement()
     {
         var temp = player.rb.velocity;
-        if(!willMoveTowardsRight && !willMoveTowardsLeft)
-        {
-            temp.x = 0f;
-        }
+        temp.x = 0f;
         if (willMoveTowardsRight)
         {
             temp.x += horizontalSpeed;
