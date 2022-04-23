@@ -7,7 +7,6 @@ using UnityEngine;
 public class KickControl : MonoBehaviour
 {
     private Ball ball;
-    private Coroutine shootCoroutine;
     private bool isContactedWithBall = false;
     private bool canTryKick;
     private void Start()
@@ -24,40 +23,17 @@ public class KickControl : MonoBehaviour
             transform.eulerAngles = Vector3.zero;
             canTryKick = false;
         }).SetId("kickTween");
-        if(shootCoroutine != null) StopCoroutine(shootCoroutine);
-        shootCoroutine = StartCoroutine(TryShoot());
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         if(!other.rigidbody) return;
-        if (other.rigidbody.TryGetComponent(out Ball ball))
+        if (!other.rigidbody.TryGetComponent(out Ball ball)) return;
+        Debug.Log("entered");
+        if (canTryKick)
         {
-            isContactedWithBall = true;
-        }
-    }
-    
-    private void OnCollisionExit(Collision other)
-    {
-        if(!other.rigidbody) return;
-        if (other.rigidbody.TryGetComponent(out Ball ball))
-        {
-            isContactedWithBall = false;
-        }
-    }
-
-    private IEnumerator TryShoot()
-    {
-        while (canTryKick)
-        {
-            Debug.Log("try shoot");
-            if (isContactedWithBall)
-            {
-                var dir = transform.right;
-                ball.Shoot(dir);
-                break;
-            }
-            yield return null;
+            ball.Shoot(transform.right);
+            canTryKick = false;
         }
     }
 }
