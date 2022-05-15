@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4084429336779620695}
-  shootPower: 30
+  shootPower: 22
 --- !u!1001 &170642815178158604
 PrefabInstance:
   m_ObjectHideFlags: 0
