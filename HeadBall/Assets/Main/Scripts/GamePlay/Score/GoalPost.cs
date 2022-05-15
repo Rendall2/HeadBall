@@ -7,7 +7,7 @@ using UnityEngine;
 public class GoalPost : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreTmp;
-    public int playerScore;
+    public int playerScore = 0;
 
     private void Awake()
     {
