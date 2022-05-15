@@ -1041,7 +1041,7 @@ PrefabInstance:
     - target: {fileID: 7070009481074393776, guid: 149bd23c3c97e4a89b87d55f5b223cf1, type: 3}
       propertyPath: scoreTmp
       value: 
-      objectReference: {fileID: 1084998302}
+      objectReference: {fileID: 1847043240}
     - target: {fileID: 7551918808100801143, guid: 149bd23c3c97e4a89b87d55f5b223cf1, type: 3}
       propertyPath: goalPost
       value: 
@@ -2542,7 +2542,7 @@ PrefabInstance:
     - target: {fileID: 7070009481074393776, guid: 149bd23c3c97e4a89b87d55f5b223cf1, type: 3}
       propertyPath: scoreTmp
       value: 
-      objectReference: {fileID: 1847043240}
+      objectReference: {fileID: 1084998302}
     - target: {fileID: 7551918808100801143, guid: 149bd23c3c97e4a89b87d55f5b223cf1, type: 3}
       propertyPath: goalPost
       value: 
