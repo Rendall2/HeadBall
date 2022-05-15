@@ -171,6 +171,8 @@ MonoBehaviour:
   playerMovement: {fileID: 5721098081778290055}
   rb: {fileID: 7475828380495675302}
   photonView: {fileID: 4899796084346958720}
+  playerGoalPost: {fileID: 0}
+  enemyGoalPost: {fileID: 0}
 --- !u!1 &5298472363273900819
 GameObject:
   m_ObjectHideFlags: 0

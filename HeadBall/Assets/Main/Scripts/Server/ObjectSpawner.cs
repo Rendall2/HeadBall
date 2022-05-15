@@ -23,6 +23,8 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
         {
             var player1 = PhotonNetwork.Instantiate("Player", spawnPositions[0], Quaternion.identity);
             owner = player1.transform;
+            player1.GetComponent<Player>().playerGoalPost = GoalPosts.Instance.leftGoalPost;
+            player1.GetComponent<Player>().enemyGoalPost = GoalPosts.Instance.rightGoalPost;
             return;
         }
 
@@ -31,6 +33,8 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
         var temp = player2.transform.localScale;
         temp.x = -temp.x;
         player2.transform.localScale = temp;
+        player2.GetComponent<Player>().playerGoalPost = GoalPosts.Instance.rightGoalPost;
+        player2.GetComponent<Player>().enemyGoalPost = GoalPosts.Instance.leftGoalPost;
     }
 
     private void SpawnObjects()

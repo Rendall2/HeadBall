@@ -8,9 +8,11 @@ public class GameTimer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerTmp;
 
-    private int maxTime = 180;
+    private int maxTime = 10;
     private int timeLeft;
     private string totalTimeString;
+    private int minutes;
+    private string seconds;
 
     void Start()
     {
@@ -37,8 +39,8 @@ public class GameTimer : MonoBehaviour
 
     private void SetTimerTmp()
     {
-        int minutes = timeLeft / 60;
-        string seconds = GetSecondsLeft();
+        minutes = timeLeft / 60;
+        seconds = GetSecondsLeft();
 
         totalTimeString = minutes + ":" + seconds;
         timerTmp.SetText(totalTimeString);
