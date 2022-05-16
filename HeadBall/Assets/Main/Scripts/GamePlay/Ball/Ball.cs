@@ -16,14 +16,8 @@ public class Ball : SingletonPun<Ball>
         fireObject.SetActive(false);
     }
 
-    [PunRPC]
-    public void InitBallFire(float duration)
-    {
-        Debug.Log("here");
-        StartCoroutine(OpenBallFire(duration));
-    }
 
-    private IEnumerator OpenBallFire(float duration)
+    public IEnumerator OpenBallFire(float duration)
     {
         fireObject.SetActive(true);
         yield return new WaitForSeconds(duration);

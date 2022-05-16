@@ -18,11 +18,18 @@ public class FireSkill : Skill
 
     private IEnumerator FirePowerUpPlayer()
     {
-        Debug.Log("here");
         PlayerManager.Instance.mainPlayer.playerFireUp.PlayerIsOnfire = true;
-        PlayerManager.Instance.mainPlayer.photonView.RPC("Ball.Instance.InitBallFire()", RpcTarget.All, 5);
+        PlayerManager.Instance.mainPlayer.photonView.RPC("InitBallFire()", RpcTarget.All, 5);
         yield return new WaitForSeconds(5);
         PlayerManager.Instance.mainPlayer.playerFireUp.PlayerIsOnfire = false;
+    }
+    
+    
+    [PunRPC]
+    public void InitBallFire(float duration)
+    {
+        Debug.Log("here");
+        StartCoroutine(Ball.Instance.OpenBallFire(duration));
     }
 }
 
