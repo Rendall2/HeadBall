@@ -21,20 +21,33 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
     {
         if (isMasterClient)
         {
-            var player1 = PhotonNetwork.Instantiate("Player", spawnPositions[0], Quaternion.identity);
-            owner = player1.transform;
-            player1.GetComponent<Player>().playerGoalPost = GoalPosts.Instance.rightGoalPost;
-            player1.GetComponent<Player>().enemyGoalPost = GoalPosts.Instance.leftGoalPost;
+            SpawnMasterPlayer();
             return;
         }
 
+        SpawnOtherPlayer();
+    }
+
+    private void SpawnMasterPlayer()
+    {
+        var player1 = PhotonNetwork.Instantiate("Player", spawnPositions[0], Quaternion.identity);
+        owner = player1.transform;
+        Player player = player1.GetComponent<Player>();
+        player.playerGoalPost = GoalPosts.Instance.rightGoalPost;
+        player.enemyGoalPost = GoalPosts.Instance.leftGoalPost;
+        PlayerManager.Instance.mainPlayer = player;
+    }
+
+    private void SpawnOtherPlayer()
+    {
         var player2 = PhotonNetwork.Instantiate("Player", spawnPositions[1], Quaternion.identity);
         owner = player2.transform;
         var temp = player2.transform.localScale;
         temp.x = -temp.x;
         player2.transform.localScale = temp;
-        player2.GetComponent<Player>().playerGoalPost = GoalPosts.Instance.leftGoalPost;
-        player2.GetComponent<Player>().enemyGoalPost = GoalPosts.Instance.rightGoalPost;
+        Player player = player2.GetComponent<Player>();
+        player.playerGoalPost = GoalPosts.Instance.leftGoalPost;
+        player.enemyGoalPost = GoalPosts.Instance.rightGoalPost;
     }
 
     private void SpawnObjects()

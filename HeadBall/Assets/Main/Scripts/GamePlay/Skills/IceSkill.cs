@@ -8,6 +8,8 @@ public class IceSkill : Skill
     protected override void UseSkill()
     {
         base.UseSkill();
+        PlayerManager.Instance.enemyPlayer.photonView.RPC("FreezeOtherPlayer", RpcTarget.Others);
+
         FreezeOtherPlayer();
         
     }
@@ -15,6 +17,6 @@ public class IceSkill : Skill
     [PunRPC]
     private void FreezeOtherPlayer()
     {
-        this..RPC()
+        PlayerManager.Instance.mainPlayer.playerMovement.enabled = false;
     }
 }

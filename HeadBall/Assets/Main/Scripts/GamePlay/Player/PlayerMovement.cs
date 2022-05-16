@@ -19,7 +19,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        if (!player.photonView.IsMine) Destroy(this);
+        if (!player.photonView.IsMine)
+        {
+            PlayerManager.Instance.enemyPlayer = player;
+            Destroy(this);
+        }
     }
 
     private void Update()
