@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
             return;
         }
         
-        //Draw senaryosu var.
+        InGameUI.Instance.DrawGame();
     }
 
     #endregion gameStates

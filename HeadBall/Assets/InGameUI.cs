@@ -38,5 +38,12 @@ public class InGameUI : Singleton<InGameUI>
         bg.gameObject.SetActive(true);
         levelEndPanel.gameObject.SetActive(true);
         levelEndPanel.OpenFailPanel();
+    }   
+    
+    public void DrawGame()
+    {
+        bg.gameObject.SetActive(true);
+        levelEndPanel.gameObject.SetActive(true);
+        levelEndPanel.OpenDrawPanel();
     }
 }
