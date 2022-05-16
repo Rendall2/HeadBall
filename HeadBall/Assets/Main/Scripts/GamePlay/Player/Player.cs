@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public GoalPost playerGoalPost { get; set; }
     public GoalPost enemyGoalPost { get; set; }
     public PlayerMovement playerMovement;
+    public KickControl kickControll;
     public PlayerFireUp playerFireUp;
     public Rigidbody rb;
     public PhotonView photonView;

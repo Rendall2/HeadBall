@@ -10,6 +10,11 @@ public class KickControl : MonoBehaviour
     private bool isContactedWithBall = false;
     private bool canTryKick;
 
+    private void Start()
+    {
+        if (PlayerManager.Instance.enemyPlayer.kickControll == this) Destroy(this);
+    }
+
     public void KickSimulate()
     {
         canTryKick = true;
@@ -42,7 +47,7 @@ public class KickControl : MonoBehaviour
             if (PhotonNetwork.IsMasterClient)
             {
                 ball.Shoot(Vector3.right);
-
+                
             }
             else
             {

@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5721098081778290055}
+  kickControll: {fileID: 4614964586603179660}
   playerFireUp: {fileID: 9095681576686979845}
   rb: {fileID: 7475828380495675302}
   photonView: {fileID: 4899796084346958720}
