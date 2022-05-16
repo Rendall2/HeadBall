@@ -3026,7 +3026,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillPanel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6764829573690014854, guid: b288d2c1180dd4232af45f1aa3b2b212, type: 3}
+      propertyPath: btn
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6835976841815515972, guid: b288d2c1180dd4232af45f1aa3b2b212, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b288d2c1180dd4232af45f1aa3b2b212, type: 3}
 --- !u!224 &3229700516811097621 stripped
 RectTransform:
