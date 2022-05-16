@@ -8,7 +8,7 @@ public class GameTimer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerTmp;
 
-    private int maxTime = 1000;
+    private int maxTime = 180;
     private int timeLeft;
     private string totalTimeString;
     private int minutes;
