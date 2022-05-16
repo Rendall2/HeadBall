@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerSkillController : MonoBehaviour
 {
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) InGameUI.Instance.fireSkill.UseFireSkill();
+        if (Input.GetKey(KeyCode.R))
+        {
+            Debug.Log("rrr");
+            InGameUI.Instance.fireSkill.UseFireSkill();
+        }
     }
 }
