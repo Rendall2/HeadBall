@@ -48,6 +48,7 @@ public class ObjectSpawner : SingletonPun<ObjectSpawner>
         Player player = player2.GetComponent<Player>();
         player.playerGoalPost = GoalPosts.Instance.leftGoalPost;
         player.enemyGoalPost = GoalPosts.Instance.rightGoalPost;
+        PlayerManager.Instance.mainPlayer = player;
     }
 
     private void SpawnObjects()

@@ -34,7 +34,7 @@ public abstract class Skill : MonoBehaviour
     protected virtual void UseSkill()
     {
         if (isOnCooldown) return;
-        EventSystem.current.SetSelectedGameObject(null);
         StartCoroutine(CountDownCooldown());
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }
