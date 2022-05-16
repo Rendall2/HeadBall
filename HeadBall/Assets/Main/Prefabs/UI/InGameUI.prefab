@@ -1075,6 +1075,7 @@ MonoBehaviour:
   ScoreBoardController: {fileID: 4491804531202066081}
   levelEndPanel: {fileID: 5596729520797521099}
   fireSkill: {fileID: 5976174323437205709}
+  iceSkill: {fileID: 3802241846210211661}
   bg: {fileID: 7832675202560324922}
 --- !u!1 &1498244452869090643
 GameObject:
@@ -3039,6 +3040,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2583959835468530270, guid: b288d2c1180dd4232af45f1aa3b2b212, type: 3}
   m_PrefabInstance: {fileID: 1084842242298954827}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3802241846210211661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4308366588554078982, guid: b288d2c1180dd4232af45f1aa3b2b212, type: 3}
+  m_PrefabInstance: {fileID: 1084842242298954827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85fdd4820594f4de6bf75d7454ba4eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5976174323437205709 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6764829573690014854, guid: b288d2c1180dd4232af45f1aa3b2b212, type: 3}
