@@ -14,11 +14,23 @@ public class KickControl : MonoBehaviour
     {
         canTryKick = true;
         DOTween.Complete("kickTween");
-        transform.DORotate(transform.forward * 20f, .1f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).OnKill(() =>
+        if (PhotonNetwork.IsMasterClient)
         {
-            transform.eulerAngles = Vector3.zero;
-            canTryKick = false;
-        }).SetId("kickTween");
+            transform.DORotate(transform.forward * 20f, .1f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).OnKill(() =>
+            {
+                transform.eulerAngles = Vector3.zero;
+                canTryKick = false;
+            }).SetId("kickTween");
+        }
+        else
+        {
+            transform.DORotate(-transform.forward * 20f, .1f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).OnKill(() =>
+            {
+                transform.eulerAngles = Vector3.zero;
+                canTryKick = false;
+            }).SetId("kickTween"); 
+        }
+
     }
 
     private void OnCollisionStay(Collision other)
