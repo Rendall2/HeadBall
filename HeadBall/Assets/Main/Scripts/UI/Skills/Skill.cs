@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public abstract class Skill : MonoBehaviour
 {
-    [SerializeField] protected Button btn;
     [SerializeField] protected Image cooldownImg;
     private bool isOnCooldown;
     protected int cooldown = 60;
@@ -15,7 +14,6 @@ public abstract class Skill : MonoBehaviour
     void Awake()
     {
         remainingCooldown = cooldown;
-        btn.onClick.AddListener(UseSkill);
     }
 
     protected IEnumerator CountDownCooldown()
