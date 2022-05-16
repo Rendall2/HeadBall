@@ -21,10 +21,11 @@ public abstract class Skill : MonoBehaviour
     protected IEnumerator CountDownCooldown()
     {
         isOnCooldown = true;
+        cooldownImg.fillAmount = 0;
         while (remainingCooldown != 0)
         {
             yield return new WaitForSeconds(1);
-            cooldownImg.fillAmount = 1 - remainingCooldown / cooldown;
+            cooldownImg.fillAmount = (1 - remainingCooldown) / cooldown;
             remainingCooldown -= 1;
         }
 
