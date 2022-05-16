@@ -6,13 +6,8 @@ using UnityEngine;
 
 public class KickControl : MonoBehaviour
 {
-    private Ball ball;
     private bool isContactedWithBall = false;
     private bool canTryKick;
-    private void Start()
-    {
-        ball = FindObjectOfType<Ball>();
-    }
 
     public void KickSimulate()
     {

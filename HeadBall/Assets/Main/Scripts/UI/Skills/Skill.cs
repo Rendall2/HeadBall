@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public abstract class Skill : MonoBehaviour
@@ -33,6 +34,7 @@ public abstract class Skill : MonoBehaviour
     protected virtual void UseSkill()
     {
         if (isOnCooldown) return;
+        EventSystem.current.SetSelectedGameObject(null);
         StartCoroutine(CountDownCooldown());
     }
 }

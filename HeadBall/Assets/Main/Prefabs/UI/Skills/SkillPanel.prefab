@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4287125188782912990}
   - component: {fileID: 805486716785091494}
   - component: {fileID: 6835976841815515972}
-  - component: {fileID: 4605475111999953316}
+  - component: {fileID: 6764829573690014854}
   m_Layer: 5
   m_Name: FireSkill
   m_TagString: Untagged
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4605475111999953316
+--- !u!114 &6764829573690014854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2793321163284541552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85fdd4820594f4de6bf75d7454ba4eea, type: 3}
+  m_Script: {fileID: 11500000, guid: aeb58c51980b048bdb57b02ddadc1e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 6835976841815515972}

@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GoalPost playerGoalPost { get; set; }
+    public GoalPost enemyGoalPost { get; set; }
     public PlayerMovement playerMovement;
+    public PlayerFireUp playerFireUp;
     public Rigidbody rb;
     public PhotonView photonView;
-    public GoalPost playerGoalPost;
-    public GoalPost enemyGoalPost;
 
     #region MyRegion
 

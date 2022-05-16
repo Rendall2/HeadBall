@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 4612349436535805943}
   - component: {fileID: 5721098081778290055}
   - component: {fileID: 8806728896734863470}
+  - component: {fileID: 9095681576686979845}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -169,10 +170,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5721098081778290055}
+  playerFireUp: {fileID: 9095681576686979845}
   rb: {fileID: 7475828380495675302}
   photonView: {fileID: 4899796084346958720}
-  playerGoalPost: {fileID: 0}
-  enemyGoalPost: {fileID: 0}
+--- !u!114 &9095681576686979845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121870462251792715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a420dfaef28f47828e44e9e20fc63c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5298472363273900819
 GameObject:
   m_ObjectHideFlags: 0

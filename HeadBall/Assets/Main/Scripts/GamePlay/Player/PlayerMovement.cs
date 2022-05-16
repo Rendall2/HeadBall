@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private void VerticalMovement()
     {
         if (!willJump) return;
-        player.rb.AddForce(transform.up * 20, ForceMode.Impulse);
+        player.rb.AddForce(transform.up * 30, ForceMode.Impulse);
         willJump = false;
     }
 
