@@ -10,6 +10,7 @@ public class InGameUI : Singleton<InGameUI>
     public ScoreBoardController ScoreBoardController;
     public LevelEndPanel levelEndPanel;
     public FireSkill fireSkill;
+    public IceSkill iceSkill;
     public GameObject bg;
 
 

@@ -11,5 +11,8 @@ public class PlayerSkillController : MonoBehaviour
         {
             InGameUI.Instance.fireSkill.UseFireSkill();
         }
+        
+        if (Input.GetKey(KeyCode.F)) InGameUI.Instance.iceSkill.UseIceSkill();
+
     }
 }

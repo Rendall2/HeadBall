@@ -19,20 +19,21 @@ public class Ball : SingletonPun<Ball>
     [PunRPC]
     public void InitBallFire(float duration)
     {
-        Debug.Log("here");
         StartCoroutine(OpenBallFire(duration));
     }
     
     public IEnumerator OpenBallFire(float duration)
     {
         fireObject.SetActive(true);
+        isOnFire = true;
         yield return new WaitForSeconds(duration);
         fireObject.SetActive(false);
+        isOnFire = false;
     }
 
     public void Shoot(Vector3 dir)
     {
-        Debug.Log((dir + Vector3.up) * shootPower);
+        if (isOnFire) return;
         rb.AddForce((dir + Vector3.up) * shootPower,ForceMode.Impulse);
     }
 }
