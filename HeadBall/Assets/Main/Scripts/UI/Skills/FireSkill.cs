@@ -25,12 +25,5 @@ public class FireSkill : Skill
         PlayerManager.Instance.mainPlayer.playerFireUp.PlayerIsOnfire = false;
     }
     
-    
-    [PunRPC]
-    public void InitBallFire(float duration)
-    {
-        Debug.Log("here");
-        StartCoroutine(Ball.Instance.OpenBallFire(duration));
-    }
 }
 
