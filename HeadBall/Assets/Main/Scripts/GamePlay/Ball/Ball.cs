@@ -31,6 +31,6 @@ public class Ball : Singleton<Ball>
 
     public void Shoot(Vector3 dir)
     {
-        rb.AddForce((dir + Vector3.up) * shootPower,ForceMode.Impulse);
+        rb.AddForce((dir + Vector3.up * .5f) * shootPower,ForceMode.Impulse);
     }
 }

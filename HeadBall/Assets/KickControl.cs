@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Photon.Pun;
 using UnityEngine;
 
 public class KickControl : MonoBehaviour
@@ -26,7 +27,16 @@ public class KickControl : MonoBehaviour
         if (!other.rigidbody.TryGetComponent(out Ball ball)) return;
         if (canTryKick)
         {
-            ball.Shoot(transform.right);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                ball.Shoot(transform.right);
+
+            }
+            else
+            {
+                ball.Shoot(-transform.right);
+
+            }
             canTryKick = false;
         }
     }
