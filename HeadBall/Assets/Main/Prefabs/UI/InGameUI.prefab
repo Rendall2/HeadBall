@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   succesPanel: {fileID: 5396709834711479508}
   failPanel: {fileID: 657475643151872747}
-  drawPanel: {fileID: 0}
+  drawPanel: {fileID: 7817858196563888556}
   goBackToLobbyButton: {fileID: 497384294321281881}
 --- !u!1 &3532437549594108700
 GameObject:
