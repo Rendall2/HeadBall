@@ -281,7 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4084429336779620695}
-  shootPower: 22
   isOnFire: 0
   fireObject: {fileID: 4585095485629287375}
 --- !u!75 &-3020893753343141516

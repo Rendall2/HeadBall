@@ -40,7 +40,7 @@ public class KickControl : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if(!other.rigidbody) return;
+        if (!other.rigidbody) return;
         if (!other.rigidbody.TryGetComponent(out Ball ball)) return;
         if (canTryKick)
         {

@@ -7,7 +7,7 @@ using UnityEngine;
 public class Ball : Singleton<Ball>
 {
     public Rigidbody rb;
-    public float shootPower = 100f;
+    public float shootPower { get; set; }= 22;
     public bool isOnFire;
     public GameObject fireObject;
 
@@ -31,7 +31,7 @@ public class Ball : Singleton<Ball>
 
     public void Shoot(Vector3 dir)
     {
-        Debug.Log(dir);
+        Debug.Log((dir + Vector3.up) * shootPower);
         rb.AddForce((dir + Vector3.up) * shootPower,ForceMode.Impulse);
     }
 }
