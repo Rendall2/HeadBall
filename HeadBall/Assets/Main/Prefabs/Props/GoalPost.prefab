@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05f5ee24a896451d812a17c892039a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreTmp: {fileID: 0}
+  playerScore: 0
 --- !u!1 &3894558234599636823
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4324162103357242619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.21}
   m_LocalScale: {x: 15, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6362541469269041490}
@@ -313,7 +315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6297182086882418645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.004, y: 0, z: 0.38}
+  m_LocalPosition: {x: 0.004, y: 0, z: 0.242}
   m_LocalScale: {x: 1.2322603, y: 1, z: 0.16447078}
   m_Children: []
   m_Father: {fileID: 3730899792998574215}
@@ -393,7 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f2357ccc7574d73b2d718fe02ffd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRightPost: 0
 --- !u!1 &7956681591046377751
 GameObject:
   m_ObjectHideFlags: 0
