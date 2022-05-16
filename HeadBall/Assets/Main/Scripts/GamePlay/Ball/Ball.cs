@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class Ball : Singleton<Ball>
+public class Ball : SingletonPun<Ball>
 {
     public Rigidbody rb;
     public float shootPower { get; set; }= 22;
@@ -19,6 +19,7 @@ public class Ball : Singleton<Ball>
     [PunRPC]
     public void InitBallFire(float duration)
     {
+        Debug.Log("here");
         StartCoroutine(OpenBallFire(duration));
     }
 

@@ -8,7 +8,7 @@ public abstract class Skill : MonoBehaviour
 {
     [SerializeField] protected Image cooldownImg;
     protected bool isOnCooldown;
-    protected int cooldown = 60;
+    protected int cooldown = 5;
     protected int remainingCooldown;
 
     void Awake()
