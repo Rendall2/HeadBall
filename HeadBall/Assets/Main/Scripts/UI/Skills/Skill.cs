@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public abstract class Skill : MonoBehaviour
 {
     [SerializeField] protected Image cooldownImg;
-    private bool isOnCooldown;
+    protected bool isOnCooldown;
     protected int cooldown = 60;
     protected int remainingCooldown;
 
@@ -28,12 +28,5 @@ public abstract class Skill : MonoBehaviour
         }
 
         isOnCooldown = false;
-    }
-
-    protected virtual void UseSkill()
-    {
-        if (isOnCooldown) return;
-        StartCoroutine(CountDownCooldown());
-        EventSystem.current.SetSelectedGameObject(null);
     }
 }

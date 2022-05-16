@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class IceSkill : Skill
 {
-    protected override void UseSkill()
+    public  void UseIceSkill()
     {
-        base.UseSkill();
         PlayerManager.Instance.enemyPlayer.photonView.RPC("FreezeOtherPlayer", RpcTarget.Others);
 
         FreezeOtherPlayer();

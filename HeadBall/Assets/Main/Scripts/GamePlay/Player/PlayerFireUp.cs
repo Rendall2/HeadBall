@@ -11,7 +11,7 @@ public class PlayerFireUp : MonoBehaviour
     {
         if (collisionInfo.rigidbody && collisionInfo.rigidbody.TryGetComponent(out Ball ball) && PlayerIsOnfire)
         {
-            //ball.rb.AddForce((PlayerManager.Instance.mainPlayer.playerGoalPost.transform.position + Vector3.up * 3 - ball.transform.position) * 8, ForceMode.VelocityChange);
+            ball.rb.AddForce((PlayerManager.Instance.mainPlayer.playerGoalPost.transform.position + Vector3.up * 3 - ball.transform.position) * 8, ForceMode.VelocityChange);
         }
     }
 }

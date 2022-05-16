@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FireSkill : Skill
 {
-    protected override void UseSkill()
+    public void UseFireSkill()
     {
-        base.UseSkill();
+        EventSystem.current.SetSelectedGameObject(null);
+        if (isOnCooldown) return;
+        
+        StartCoroutine(CountDownCooldown());
         StartCoroutine(FirePowerUpPlayer());
         
     }
@@ -15,7 +19,7 @@ public class FireSkill : Skill
     private IEnumerator FirePowerUpPlayer()
     {
         PlayerManager.Instance.mainPlayer.playerFireUp.PlayerIsOnfire = true;
-        PlayerManager.Instance.mainPlayer.photonView.RPC("Ball.Instance.InitBallFire(5)", RpcTarget.All);
+        PlayerManager.Instance.mainPlayer.photonView.RPC("Ball.Instance.InitBallFire()", RpcTarget.All, 5);
         yield return new WaitForSeconds(5);
         PlayerManager.Instance.mainPlayer.playerFireUp.PlayerIsOnfire = false;
     }
