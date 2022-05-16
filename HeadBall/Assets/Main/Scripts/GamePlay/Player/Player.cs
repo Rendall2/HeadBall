@@ -14,6 +14,13 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public PhotonView photonView;
 
+    
+    [PunRPC]
+    private void FreezeOtherPlayer()
+    {
+        PlayerManager.Instance.mainPlayer.playerMovement.enabled = false;
+    }
+    
     #region MyRegion
 
     private void OnEnable()
