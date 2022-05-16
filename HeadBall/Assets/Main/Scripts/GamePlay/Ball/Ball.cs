@@ -31,7 +31,7 @@ public class Ball : Singleton<Ball>
 
     public void Shoot(Vector3 dir)
     {
-        Debug.Log("dir");
+        Debug.Log(dir);
         rb.AddForce((dir + Vector3.up) * shootPower,ForceMode.Impulse);
     }
 }
