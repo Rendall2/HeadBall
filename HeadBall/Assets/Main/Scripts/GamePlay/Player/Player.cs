@@ -18,7 +18,14 @@ public class Player : MonoBehaviour
     [PunRPC]
     private void FreezeOtherPlayer()
     {
-        PlayerManager.Instance.mainPlayer.playerMovement.enabled = false;
+        StartCoroutine(FreezeYourself());
+    }
+
+    IEnumerator FreezeYourself()
+    {
+        playerMovement.enabled = false;
+        yield return new WaitForSeconds(5);
+        playerMovement.enabled = true;
     }
     
     #region MyRegion
