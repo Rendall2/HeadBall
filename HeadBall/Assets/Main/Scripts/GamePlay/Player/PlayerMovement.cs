@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrounded { get; set; }
     private float moveSpeed = 120;
     private float jumpPower = 110f;
-    private float horizontalSpeed = 15f;
+    private float horizontalSpeed = 25f;
     private bool willMoveTowardsRight = false;
     private bool willMoveTowardsLeft = false;
     private bool willJump = false;

@@ -8,7 +8,8 @@ public class Ball : SingletonPun<Ball>
 {
     public Rigidbody rb;
     public PhotonView photonView;
-    public float shootPower { get; set; }= 22;
+    public float shootPower { get; set; }=  16;
+    public float fireShootPower { get; set; }=  30;
     public bool isOnFire;
     public GameObject fireObject;
 
@@ -42,6 +43,6 @@ public class Ball : SingletonPun<Ball>
     [PunRPC]
     public void ShootFireBall()
     {
-        rb.AddForce((PlayerManager.Instance.mainPlayer.playerGoalPost.transform.position + Vector3.up * 3 - transform.position) * 8, ForceMode.VelocityChange);
+        rb.AddForce((PlayerManager.Instance.mainPlayer.playerGoalPost.transform.position + Vector3.up * 2 - transform.position).magnitude * Vector3.one * fireShootPower, ForceMode.VelocityChange);
     }
 }
