@@ -46,12 +46,12 @@ public class KickControl : MonoBehaviour
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                ball.Shoot(Vector3.right);
+                ball.photonView.RPC("Shoot", RpcTarget.All, Vector3.right);
                 
             }
             else
             {
-                ball.Shoot(Vector3.left);
+                ball.photonView.RPC("Shoot", RpcTarget.All, Vector3.left);
 
             }
             canTryKick = false;

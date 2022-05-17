@@ -7,6 +7,7 @@ using UnityEngine;
 public class Ball : SingletonPun<Ball>
 {
     public Rigidbody rb;
+    public PhotonView photonView;
     public float shootPower { get; set; }= 22;
     public bool isOnFire;
     public GameObject fireObject;
@@ -31,6 +32,7 @@ public class Ball : SingletonPun<Ball>
         isOnFire = false;
     }
 
+    [PunRPC]
     public void Shoot(Vector3 dir)
     {
         if (isOnFire) return;
