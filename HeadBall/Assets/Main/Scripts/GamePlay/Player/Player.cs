@@ -28,11 +28,11 @@ public class Player : MonoBehaviour
 
     IEnumerator FreezeYourself()
     {
-        playerMovement.enabled = false;
+        if (playerMovement) playerMovement.enabled = false;
         ice.gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
         ice.gameObject.SetActive(false);
-        playerMovement.enabled = true;
+        if (playerMovement) playerMovement.enabled = true;
     }
 
     #region MyRegion
