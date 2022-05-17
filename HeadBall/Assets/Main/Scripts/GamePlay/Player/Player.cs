@@ -8,13 +8,18 @@ public class Player : MonoBehaviour
 {
     public GoalPost playerGoalPost { get; set; }
     public GoalPost enemyGoalPost { get; set; }
+    public GameObject ice;
     public PlayerMovement playerMovement;
     public KickControl kickControll;
     public PlayerFireUp playerFireUp;
     public Rigidbody rb;
     public PhotonView photonView;
 
-    
+    private void Awake()
+    {
+        ice.gameObject.SetActive(false);
+    }
+
     [PunRPC]
     private void FreezeOtherPlayer()
     {
@@ -24,10 +29,12 @@ public class Player : MonoBehaviour
     IEnumerator FreezeYourself()
     {
         playerMovement.enabled = false;
+        ice.gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
+        ice.gameObject.SetActive(false);
         playerMovement.enabled = true;
     }
-    
+
     #region MyRegion
 
     private void OnEnable()
@@ -55,7 +62,7 @@ public class Player : MonoBehaviour
             InGameUI.Instance.FailGame();
             return;
         }
-        
+
         InGameUI.Instance.DrawGame();
     }
 
