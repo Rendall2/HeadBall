@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
 
     private void CheckGameState()
     {
+        Debug.Log(playerGoalPost.playerScore);
+        Debug.Log(enemyGoalPost.playerScore);
         if (playerGoalPost.playerScore > enemyGoalPost.playerScore)
         {
             InGameUI.Instance.SuccessGame();
