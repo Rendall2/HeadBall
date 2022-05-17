@@ -8,8 +8,8 @@ public abstract class Skill : MonoBehaviour
 {
     [SerializeField] protected Image cooldownImg;
     protected bool isOnCooldown;
-    protected int cooldown = 5;
-    protected int remainingCooldown;
+    protected float cooldown = 60;
+    protected float remainingCooldown;
 
     void Awake()
     {
@@ -22,9 +22,9 @@ public abstract class Skill : MonoBehaviour
         cooldownImg.fillAmount = 0;
         while (remainingCooldown != 0)
         {
-            yield return new WaitForSeconds(1);
-            cooldownImg.fillAmount = 1 - (remainingCooldown / cooldown);
-            remainingCooldown -= 1;
+            yield return new WaitForSeconds(.2f);
+            cooldownImg.fillAmount = 1 - remainingCooldown / cooldown;
+            remainingCooldown -= .2f;
         }
 
         isOnCooldown = false;
