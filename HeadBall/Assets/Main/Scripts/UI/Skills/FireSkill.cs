@@ -10,7 +10,9 @@ public class FireSkill : Skill
     public void UseFireSkill()
     {
         EventSystem.current.SetSelectedGameObject(null);
+
         if (isOnCooldown) return;
+        Debug.Log(isOnCooldown);
         
         StartCoroutine(CountDownCooldown());
         StartCoroutine(FirePowerUpPlayer());

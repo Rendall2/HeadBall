@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         ice.gameObject.SetActive(false);
+        LevelConditions.OnGameEnds += CheckGameState;
     }
 
     [PunRPC]
@@ -36,16 +37,7 @@ public class Player : MonoBehaviour
     }
 
     #region MyRegion
-
-    private void OnEnable()
-    {
-        LevelConditions.OnGameEnds += CheckGameState;
-    }
-
-    private void OnDisable()
-    {
-        LevelConditions.OnGameEnds -= CheckGameState;
-    }
+    
 
     private void CheckGameState()
     {
@@ -62,7 +54,7 @@ public class Player : MonoBehaviour
             InGameUI.Instance.FailGame();
             return;
         }
-
+        
         InGameUI.Instance.DrawGame();
     }
 

@@ -10,21 +10,18 @@ public abstract class Skill : MonoBehaviour
     protected bool isOnCooldown;
     protected float cooldown = 60;
     protected float remainingCooldown;
-
-    void Awake()
-    {
-        remainingCooldown = cooldown;
-    }
+    
 
     protected IEnumerator CountDownCooldown()
     {
         isOnCooldown = true;
+        remainingCooldown = cooldown;
         cooldownImg.fillAmount = 0;
-        while (remainingCooldown != 0)
+        while (remainingCooldown >= 0)
         {
             yield return new WaitForSeconds(.2f);
-            cooldownImg.fillAmount = 1 - remainingCooldown / cooldown;
             remainingCooldown -= .2f;
+            cooldownImg.fillAmount = 1 - remainingCooldown / cooldown;
         }
 
         isOnCooldown = false;

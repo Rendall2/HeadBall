@@ -44,8 +44,12 @@ public class InGameUI : Singleton<InGameUI>
     
     public void DrawGame()
     {
+        Debug.Log("??");
         bg.gameObject.SetActive(true);
+        Debug.Log("???");
         levelEndPanel.gameObject.SetActive(true);
+        Debug.Log("????");
         levelEndPanel.OpenDrawPanel();
+        Debug.Log("?????");
     }
 }

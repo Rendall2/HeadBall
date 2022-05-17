@@ -36,6 +36,12 @@ public class Ball : SingletonPun<Ball>
     public void Shoot(Vector3 dir)
     {
         if (isOnFire) return;
-        rb.AddForce((dir + Vector3.up) * shootPower,ForceMode.Impulse);
+        rb.AddForce((dir + Vector3.up * .7f) * shootPower,ForceMode.Impulse);
+    }    
+    
+    [PunRPC]
+    public void ShootFireBall()
+    {
+        rb.AddForce((PlayerManager.Instance.mainPlayer.playerGoalPost.transform.position + Vector3.up * 3 - transform.position) * 8, ForceMode.VelocityChange);
     }
 }

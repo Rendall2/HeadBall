@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public Player player;
     public KickControl kickControl;
     public bool IsGrounded { get; set; }
-    private float moveSpeed = 100;
-    private float jumpPower = 100f;
+    private float moveSpeed = 120;
+    private float jumpPower = 110f;
     private float horizontalSpeed = 15f;
     private bool willMoveTowardsRight = false;
     private bool willMoveTowardsLeft = false;
