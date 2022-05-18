@@ -9,19 +9,23 @@ public class PlayerFireUp : MonoBehaviour
     public bool PlayerIsOnfire { get; set; }
     public bool isOnCd;
 
-    private void OnCollisionEnter(Collision collisionInfo)
+    private void OnTriggerEnter(Collider other)
     {
         if (isOnCd) return;
         if (!PlayerIsOnfire) return;
-        Debug.Log("shoot!!");
-        
-        if (collisionInfo.rigidbody && collisionInfo.rigidbody.TryGetComponent(out Ball ball))
+
+        if (other.attachedRigidbody && other.attachedRigidbody.TryGetComponent(out Ball ball))
         {
-            ball.photonView.RPC("ShootFireBall", RpcTarget.All);
+            Vector3 dir = (PlayerManager.Instance.mainPlayer.playerGoalPost.transform.position + Vector3.up * 1.5f - ball.transform.position)
+                .normalized;
+            ball.photonView.RPC("ShootFireBall", RpcTarget.All, dir);
+
+            
+
             StartCoroutine(CdCoroutine());
         }
     }
-    
+
 
     IEnumerator CdCoroutine()
     {

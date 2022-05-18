@@ -8,8 +8,8 @@ public class Ball : SingletonPun<Ball>
 {
     public Rigidbody rb;
     public PhotonView photonView;
-    public float shootPower { get; set; }=  16;
-    public float fireShootPower { get; set; }=  30;
+    public float shootPower { get; set; }=  25;
+    public float fireShootPower { get; set; }=  42;
     public bool isOnFire;
     public GameObject fireObject;
 
@@ -37,12 +37,13 @@ public class Ball : SingletonPun<Ball>
     public void Shoot(Vector3 dir)
     {
         if (isOnFire) return;
-        rb.AddForce((dir + Vector3.up * .7f) * shootPower,ForceMode.Impulse);
+        rb.AddForce((dir + Vector3.up * .8f).normalized * shootPower,ForceMode.Impulse);
     }    
     
     [PunRPC]
-    public void ShootFireBall()
+    public void ShootFireBall(Vector3 dir)
     {
-        rb.AddForce((PlayerManager.Instance.mainPlayer.playerGoalPost.transform.position + Vector3.up * 2 - transform.position).magnitude * Vector3.one * fireShootPower, ForceMode.VelocityChange);
+        //SS alirken folderlama.
+        rb.AddForce((dir + Vector3.up * .8f).normalized * fireShootPower, ForceMode.Impulse);
     }
 }
